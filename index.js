@@ -3,18 +3,17 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
-const userRoutes=require("./routes/userRoutes")
-// backend/index.js or app.js
-
-app.use(cors({
-  origin: "https://skillbarter-beta.vercel.app", // ✅ tumhara frontend domain
-  credentials: true
-}));
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 
-const app = express();
-app.use(cors());
+const app = express(); // ✅ Initialize `app` BEFORE using it
+
+app.use(cors({
+  origin: "https://skillbarter-beta.vercel.app",
+  credentials: true
+}));
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
