@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
   description: String,
   skillsHave: String,
   skillsWant: String,
+  
   otp: String,
   isVerified: {
     type: Boolean,
